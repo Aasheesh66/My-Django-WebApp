@@ -56,7 +56,7 @@ RUN python -m pip install --upgrade pip setuptools wheel \
 
 # Copy application code
 COPY django_web_app/ ./django_web_app/
-COPY manage.py ./manage.py
+COPY django_web_app/manage.py ./manage.py
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 
 # Ensure media and static dirs exist (if used)
