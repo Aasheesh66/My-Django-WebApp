@@ -5,4 +5,5 @@ pillow==11.3.0
 sqlparse==0.5.3
 tzdata==2025.2
 whitenoise==6.5.0
-crispy-bootstrap4==2020.1
+# Use a modern crispy-bootstrap4 release compatible with current Python
+crispy-bootstrap4==2025.6
