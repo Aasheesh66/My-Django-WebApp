@@ -55,9 +55,8 @@ RUN python -m pip install --upgrade pip setuptools wheel \
     && if [ -d /wheels ] && [ "$(ls -A /wheels)" ]; then pip install --no-index --find-links=/wheels -r requirements.txt; else if [ -s requirements.txt ]; then pip install -r requirements.txt; fi; fi \
     && pip install --no-cache-dir gunicorn || true
 
-# Copy application code (copy inner package so imports like "django_web_app.settings" resolve)
-COPY django_web_app/django_web_app/ ./django_web_app/
-COPY django_web_app/manage.py ./manage.py
+# Copy entire project into /app so top-level apps (blog, users) and manage.py are present
+COPY django_web_app/ .
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 
 # Ensure media and static dirs exist (if used)
